@@ -26,8 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Category::fixTree();
-        
         view()->composer('includes.category-list', function(View $view){
             $categories = Category::with('children')->hasActiveArticles()->where('parent_id', null)->orderBy('created_at', 'asc')->get();
             $view->with('categories', $categories);
