@@ -8,23 +8,23 @@
     	<div class="col-md-8">
     		<div class="card">
     			<div class="card-header">{{ $article->title }}</div>
-    	
+
     			<div class="card-body">
     				<small>{{ $article->created_at->format('d.m.Y') }}</small>
-    		 			<p>{!! nl2br($article->content) !!}</p>	
+    		 			<p>{!! nl2br($article->content) !!}</p>
     			</div>
     		</div>
-    		
+
     		<div class="card mt-4">
     			<div class="card-header">{{ __('public.article_show_comments') }}</div>
-    	
+
     			<div class="card-body">
     				@if($article->comments->count())
     					@foreach($article->comments as $comment)
     						<div class="well">
     							<h4>{{ $comment->author }}</h4>
     							<small>{{ $comment->created_at->format('d.m.Y') }}</small>
-    							<p>{!! nl2br($comment->content) !!}</p>	
+    							<p>{!! nl2br($comment->content) !!}</p>
     						</div>
     					@endforeach
     				@else
@@ -32,10 +32,10 @@
     				@endif
     			</div>
     		</div>
-    		
+
     		<div class="card mt-4">
     			<div class="card-header">{{ __('public.article_show_write_your_comment') }}</div>
-    	
+
     			<div class="card-body">
     				@if(count($errors) > 0)
     					<div class="alert alert-danger">
